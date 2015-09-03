@@ -39,13 +39,13 @@ public class MinimumStepsToOne {
     }
 
     int min(int n) {
-        if (n % 3 == 0) {
-            System.out.println(n + " % 3");
-            return n - ((n - n % 3) / 3);
-        }
         if (n % 2 == 0) {
             System.out.println(n + " % 2");
-            return n - ((n - n % 2) / 2);
+            return n / 2;
+        }
+        if (n % 3 == 0) {
+            System.out.println(n + " % 3");
+            return n / 3;
         }
         System.out.println(n + " - 1");
         return n - 1;

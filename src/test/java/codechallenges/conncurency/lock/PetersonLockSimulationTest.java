@@ -8,7 +8,7 @@ import static org.junit.Assert.assertTrue;
 /**
  * PetersonLock simulation class for testing mutual exclusion
  */
-public class PetersonLockSimulationTest {
+public class PetersonLockSimulationTest extends LockTestBase {
 
     Lock petersonLock = new PetersonLock();
 
@@ -35,7 +35,7 @@ public class PetersonLockSimulationTest {
                     inCriticalSection--;
                 }
                 petersonLock.release(pid);
-                synchronized(this) {
+                synchronized (this) {
                     System.out.println("not in critical: " + pid);
                     waitfor(random.nextInt(500));
                 }
@@ -81,14 +81,6 @@ public class PetersonLockSimulationTest {
         int[] results = checkThread.results;
         for (int i = 0; i < results.length; i++) {
             assertTrue(results[i] < 2);
-        }
-    }
-
-    static void waitfor(int miliseconds) {
-        try {
-            Thread.sleep(miliseconds);
-        } catch (InterruptedException ex) {
-            System.out.println(ex);
         }
     }
 

@@ -1,13 +1,18 @@
 package codechallenges.conncurency.lock;
 
 /**
+ * Lock interface
+ *
+ * This interface is contract for different Lock implementations that enables
+ * mutual exclusion for concurrent access.
+ *
  * When process needs to access critical section, it should acquire lock so that
  * no other thread can access the critical section in same moment. When leaving
  * critical section, process should release the lock so that next process can
  * access critical section.
  *
- * This interface is contract for different Lock implementations that enables
- * mutual exclusion for concurrent access.
+ * @see PetersonLock
+ * @see LamportBakeryLock
  */
 public interface Lock {
 

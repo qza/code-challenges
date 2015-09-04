@@ -12,48 +12,52 @@ package codechallenges.dynamicprogramming;
  *
  * Examples: 1.)For n = 1 , output: 0 2.) For n = 4 , output: 2 ( 4 /2 = 2 /2 =
  * 1 ) 3.) For n = 7 , output: 3 ( 7 -1 = 6 /3 = 2 /2 = 1 )
+ *
+ * This problem can be solved with dynamic programming and O(n) complexity. Idea
+ * is to calculate minimum steps for each number <code>1 <= i <= n </code>
+ * Minimum steps for each next number can be found based on steps for previous
+ * number. Result for each number is initialized with the worst case (+1 for
+ * each step). Then there is a check for shorter combination in case that this
+ * number is dividable by 2 or 3.
  */
 public class MinimumStepsToOne {
 
-    void solve(int n) {
+    int solve(int n) {
 
-        int x = n;
-        int counter = 0;
-
-        if (x == 0) {
-            System.out.println("0");
-            return;
+        if (n <= 1) {
+            return 0;
         }
 
-        while (x > 1) {
-            x = min(x);
-            counter++;
+        int counter;
+        int[] results = new int[n + 1];
+
+        results[1] = 0;
+
+        for (counter = 2; counter <= n; counter++) {
+
+            results[counter] = 1 + results[counter - 1];
+
+            if (counter % 2 == 0) {
+                results[counter] = min(results[counter], (1 + results[counter / 2]));
+            }
+
+            if (counter % 3 == 0) {
+                results[counter] = min(results[counter], (1 + results[counter / 3]));
+            }
         }
 
-        System.out.println("For n = " + n + " step count: " + counter + "\n");
+        return results[n];
     }
 
-    int min(int n) {
-        if (n % 2 == 0) {
-            System.out.println(n + " % 2");
-            return n / 2;
-        }
-        if (n % 3 == 0) {
-            System.out.println(n + " % 3");
-            return n / 3;
-        }
-        System.out.println(n + " - 1");
-        return n - 1;
+    private int min(int a, int b) {
+        return a <= b ? a : b;
     }
 
     public static void main(String[] args) {
         MinimumStepsToOne solver = new MinimumStepsToOne();
-        solver.solve(1);
-        solver.solve(2);
-        solver.solve(3);
-        solver.solve(7);
-        solver.solve(10);
-        solver.solve(20);
+        for (int i = 0; i < 20; i++) {
+            System.out.println("n: " + i + ", result: " + solver.solve(i));
+        }
     }
 
 }

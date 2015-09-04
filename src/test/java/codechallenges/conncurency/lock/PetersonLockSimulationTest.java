@@ -6,8 +6,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertTrue;
 
 /**
- * PetersonLock test class covering mutual exclusion, progress and freedom from
- * starvation
+ * PetersonLock simulation class for testing mutual exclusion
  */
 public class PetersonLockSimulationTest {
 
@@ -84,31 +83,12 @@ public class PetersonLockSimulationTest {
             assertTrue(results[i] < 2);
         }
     }
-    
-    @Test
-    public void shoudProveProgress() throws Exception {
-
-        PetersonLockThread p0 = new PetersonLockThread(0);
-        p0.start();
-
-        PetersonLockThread p1 = new PetersonLockThread(1);
-        p1.start();
-
-        CriticalSectionCheckThread checkThread = new CriticalSectionCheckThread(100);
-        checkThread.start();
-        checkThread.join();
-
-        int[] results = checkThread.results;
-        for (int i = 0; i < results.length; i++) {
-            assertTrue(results[i] < 2);
-        }
-    }
 
     static void waitfor(int miliseconds) {
         try {
             Thread.sleep(miliseconds);
         } catch (InterruptedException ex) {
-            ex.printStackTrace();
+            System.out.println(ex);
         }
     }
 

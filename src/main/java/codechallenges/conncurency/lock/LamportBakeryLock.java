@@ -12,6 +12,10 @@ package codechallenges.conncurency.lock;
  * This algorithm also applies busy wait that is described in {@link
  * PetersonLock}
  *
+ * As each of the processes can update instance variables "numbers" and
+ * "choosing", but only single position, these variables can be defined without
+ * "volatile" as there is no visibility issue.
+ *
  * @see Lock
  */
 public class LamportBakeryLock implements Lock {

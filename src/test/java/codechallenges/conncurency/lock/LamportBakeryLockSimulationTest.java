@@ -9,9 +9,11 @@ import static org.junit.Assert.assertTrue;
 /**
  * PetersonLock simulation class for testing mutual exclusion
  */
-public class PetersonLockSimulationTest extends LockTestBase {
+public class LamportBakeryLockSimulationTest extends LockTestBase {
+    
+    static final int PROCESS_COUNT = 10;
 
-    Lock petersonLock = new PetersonLock();
+    Lock petersonLock = new LamportBakeryLock(PROCESS_COUNT);
 
     Random random = new Random();
 
@@ -20,11 +22,10 @@ public class PetersonLockSimulationTest extends LockTestBase {
     @Test
     public void shoudProveMutualExclusion() throws Exception {
 
-        CriticalSectionThread p0 = new CriticalSectionThread(0, petersonLock, counter);
-        p0.start();
-
-        CriticalSectionThread p1 = new CriticalSectionThread(1, petersonLock, counter);
-        p1.start();
+        for (int i = 0; i < PROCESS_COUNT; i++) {
+            CriticalSectionThread csThread = new CriticalSectionThread(i, petersonLock, counter);
+            csThread.start();
+        }
 
         CheckThread checkThread = new CheckThread(100, counter);
         checkThread.start();

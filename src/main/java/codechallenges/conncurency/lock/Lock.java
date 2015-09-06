@@ -1,7 +1,7 @@
 package codechallenges.conncurency.lock;
 
 /**
- * Lock interface
+ * Lock
  *
  * This interface is contract for different Lock implementations that enables
  * mutual exclusion for concurrent access.

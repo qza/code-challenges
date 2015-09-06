@@ -1,7 +1,7 @@
 package codechallenges.conncurency.lock;
 
 /**
- * <Lamport Bakery Lock implementation.
+ * Lamport Bakery Lock implementation.
  *
  * This algorithm enables mutual exclusion for N processes. The basic idea is as
  * follows: each process comes into waiting room where it gets unique number,

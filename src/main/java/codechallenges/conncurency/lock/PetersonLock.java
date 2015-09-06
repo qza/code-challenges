@@ -9,18 +9,11 @@ package codechallenges.conncurency.lock;
  * critical section, it loops while enter condition is not true. This type of
  * waiting is called busy wait.
  *
- * As each of the processed can update instance variable "turn", this variable
- * needs to be marked as volatile. Without the <code>volatile</code>, visibility
- * problem exists. This is problem related to threads and occurs when one thread
- * doesn't see the results of other thread as it is not yet written back to main
- * memory. One thread can read value from CPU cache and in such situations
- * deadlocks can occur. By declaring variable <code>turn</code> as
- * <code>volatile</code>, all writes will occur to the main memory immediately.
- * Also all other variables changed by the thread before writing to the volatile
- * variable are also flushed to main memory
+ * As each of the processes can update instance variable "turn", this variable
+ * needs to be marked as <code>volatile</code>. Without the
+ * <code>volatile</code>, there is a visibility problem between threads.
  *
  * @see Lock
- *
  */
 public class PetersonLock implements Lock {
 

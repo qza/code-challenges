@@ -13,7 +13,7 @@ public class Concurrent {
         // private constructor of utility class
     }
 
-    public static void waitfor(int miliseconds) {
+    public static void sleepFor(int miliseconds) {
         try {
             Thread.sleep(miliseconds);
         } catch (InterruptedException ex) {

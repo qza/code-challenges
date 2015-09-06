@@ -31,14 +31,14 @@ public class SemaphoreThread extends Thread {
     @Override
     public void run() {
         for (int i = 0; i < Integer.MAX_VALUE; i++) {
-            semaphore.acquire(10000);
+            semaphore.acquire(60 * 1000);
             counter.getAndIncrement();
             System.out.println("in critical: " + pid);
-            Concurrent.waitfor(random.nextInt(500));
+            Concurrent.sleepFor(random.nextInt(500));
             counter.getAndDecrement();
             semaphore.release();
             System.out.println("not in critical: " + pid);
-            Concurrent.waitfor(random.nextInt(500));
+            Concurrent.sleepFor(random.nextInt(500));
         }
     }
 

@@ -33,11 +33,11 @@ public class LockThread extends Thread {
             lock.acquire(pid);
             counter.getAndIncrement();
             System.out.println("in critical: " + pid);
-            Concurrent.waitfor(random.nextInt(500));
+            Concurrent.sleepFor(random.nextInt(500));
             counter.getAndDecrement();
             lock.release(pid);
             System.out.println("not in critical: " + pid);
-            Concurrent.waitfor(random.nextInt(500));
+            Concurrent.sleepFor(random.nextInt(500));
         }
     }
 

@@ -1,4 +1,4 @@
-package codechallenges.conncurency.lock;
+package codechallenges.concurrent.lock;
 
 /**
  * PetersonLock for mutual exclusion in a two-process system.

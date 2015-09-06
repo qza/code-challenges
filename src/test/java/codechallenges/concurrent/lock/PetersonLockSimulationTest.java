@@ -1,15 +1,18 @@
-package codechallenges.conncurency.lock;
+package codechallenges.concurrent.lock;
+
+import codechallenges.concurrent.CounterHistogramThread;
 
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import org.junit.Test;
+
 import static org.junit.Assert.assertTrue;
 
 /**
  * PetersonLock simulation class for testing mutual exclusion
  */
-public class PetersonLockSimulationTest extends LockTestBase {
+public class PetersonLockSimulationTest {
 
     Lock petersonLock = new PetersonLock();
 
@@ -20,17 +23,17 @@ public class PetersonLockSimulationTest extends LockTestBase {
     @Test
     public void shoudProveMutualExclusion() throws Exception {
 
-        CriticalSectionThread p0 = new CriticalSectionThread(0, petersonLock, counter);
+        LockThread p0 = new LockThread(0, petersonLock, counter);
         p0.start();
 
-        CriticalSectionThread p1 = new CriticalSectionThread(1, petersonLock, counter);
+        LockThread p1 = new LockThread(1, petersonLock, counter);
         p1.start();
 
-        CheckThread checkThread = new CheckThread(100, counter);
+        CounterHistogramThread checkThread = new CounterHistogramThread(50, 100, counter);
         checkThread.start();
         checkThread.join();
 
-        int[] results = checkThread.results;
+        int[] results = checkThread.getResults();
         for (int i = 0; i < results.length; i++) {
             assertTrue(results[i] < 2);
         }

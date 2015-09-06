@@ -1,4 +1,4 @@
-package codechallenges.conncurency.lock;
+package codechallenges.concurrent.lock;
 
 /**
  * Lock

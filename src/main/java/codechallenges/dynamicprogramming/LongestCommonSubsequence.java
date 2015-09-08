@@ -14,7 +14,7 @@ public class LongestCommonSubsequence {
 
     public int[] solve(int[] s1, int[] s2) {
 
-        int maxLenght = 0, maxIndex = -1;
+        int maxLength = 0, maxIndex = -1;
 
         int[] lengths = new int[s1.length];
 
@@ -22,23 +22,23 @@ public class LongestCommonSubsequence {
 
             for (int j = 0; j < s2.length; j++) {
 
-                int ii = i, jj = j, lenght = 0;
+                int ii = i, jj = j, length = 0;
 
                 while (ii < s1.length && jj < s2.length && s1[ii] == s2[jj]) {
 
                     ii += 1;
                     jj += 1;
 
-                    lenght += 1;
-                    lengths[i] = max(lengths[i], lenght);
+                    length += 1;
+                    lengths[i] = max(lengths[i], length);
 
-                    maxIndex = lengths[i] > maxLenght ? i : maxIndex;
-                    maxLenght = max(lengths[i], maxLenght);
+                    maxIndex = lengths[i] > maxLength ? i : maxIndex;
+                    maxLength = max(lengths[i], maxLength);
                 }
             }
         }
 
-        return maxIndex != -1 ? Arrays.copyOfRange(s1, maxIndex, maxIndex + maxLenght) : null;
+        return maxIndex != -1 ? Arrays.copyOfRange(s1, maxIndex, maxIndex + maxLength) : null;
 
     }
 

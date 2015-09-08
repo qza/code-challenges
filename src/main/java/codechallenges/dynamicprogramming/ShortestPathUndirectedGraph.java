@@ -28,14 +28,14 @@ public class ShortestPathUndirectedGraph {
 
     public List<Vertex> solve(final Graph graph, final Vertex start, final Vertex end) {
 
-        Map<Vertex, Integer> lenghts = new HashMap<>();
+        Map<Vertex, Integer> lengths = new HashMap<>();
 
         Iterator<Vertex> verticesIterator = graph.getVertices().iterator();
         while (verticesIterator.hasNext()) {
-            lenghts.put(verticesIterator.next(), graph.getVerticesCount());
+            lengths.put(verticesIterator.next(), graph.getVerticesCount());
         }
 
-        lenghts.put(start, 0);
+        lengths.put(start, 0);
 
         for (Vertex vertex : graph.getVertices()) {
 
@@ -43,15 +43,15 @@ public class ShortestPathUndirectedGraph {
 
                 if (!vertex.equals(vertex2) && graph.hasEdge(vertex, vertex2)) {
 
-                    lenghts.put(vertex, min(lenghts.get(vertex), lenghts.get(vertex2) + 1));
+                    lengths.put(vertex, min(lengths.get(vertex), lengths.get(vertex2) + 1));
 
-                    lenghts.put(vertex2, min(lenghts.get(vertex2), lenghts.get(vertex) + 1));
+                    lengths.put(vertex2, min(lengths.get(vertex2), lengths.get(vertex) + 1));
 
                 }
             }
         }
 
-        List<Vertex> path = new ArrayList<>(lenghts.get(end));
+        List<Vertex> path = new ArrayList<>(lengths.get(end));
 
         path.add(end);
 
@@ -68,7 +68,7 @@ public class ShortestPathUndirectedGraph {
                 Vertex nextCheck = isStart ? edge.getEnd() : edge.getStart();
 
                 next = next == null ? nextCheck
-                        : lenghts.get(nextCheck) < lenghts.get(next)
+                        : lengths.get(nextCheck) < lengths.get(next)
                                 ? nextCheck : next;
             }
 
@@ -105,7 +105,7 @@ public class ShortestPathUndirectedGraph {
         List<Vertex> result = solver.solve(graph, b, f);
 
         System.out.println("\n");
-        System.out.println("lenght: " + (result.size() - 1));
+        System.out.println("length: " + (result.size() - 1));
         System.out.print("shortest path: ");
 
         for (Vertex v : result) {

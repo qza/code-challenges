@@ -15,30 +15,30 @@ public class LongestIncreasingSequence {
         int maxIndex = 0;
         int maxLength = 0;
 
-        int[] lenghts = new int[sequence.length];
+        int[] lengths = new int[sequence.length];
 
-        lenghts[0] = 0;
+        lengths[0] = 0;
 
         for (int i = 1; i < sequence.length; i++) {
 
             if (sequence[i] > sequence[i - 1]) {
 
-                lenghts[i] = lenghts[i - 1] + 1;
+                lengths[i] = lengths[i - 1] + 1;
                 
-                if(lenghts[i] > maxLength) {
+                if(lengths[i] > maxLength) {
                     maxIndex = i;
-                    maxLength = lenghts[i];
+                    maxLength = lengths[i];
                 }
                 
             } else {
                 
-                lenghts[i] = 0;
+                lengths[i] = 0;
             }
         }
 
-        int[] lis = new int[lenghts[maxIndex] + 1];
+        int[] lis = new int[lengths[maxIndex] + 1];
 
-        for (int j = 0, i = maxIndex - lenghts[maxIndex]; i <= maxIndex; i++) {
+        for (int j = 0, i = maxIndex - lengths[maxIndex]; i <= maxIndex; i++) {
             lis[j++] = sequence[i];
         }
 

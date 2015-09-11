@@ -1,4 +1,4 @@
-package codechallenges.concurrent.semaphore;
+package codechallenges.concurrent.semaphore.buffer;
 
 /**
  * Buffer interface

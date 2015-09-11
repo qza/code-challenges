@@ -1,5 +1,7 @@
-package codechallenges.concurrent.semaphore;
+package codechallenges.concurrent.semaphore.buffer;
 
+import codechallenges.concurrent.semaphore.buffer.BoundedBuffer;
+import codechallenges.concurrent.semaphore.buffer.Buffer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;

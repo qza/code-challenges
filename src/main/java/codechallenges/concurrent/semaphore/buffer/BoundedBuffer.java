@@ -1,5 +1,8 @@
-package codechallenges.concurrent.semaphore;
+package codechallenges.concurrent.semaphore.buffer;
 
+import codechallenges.concurrent.semaphore.BinarySemaphore;
+import codechallenges.concurrent.semaphore.CountingSemaphore;
+import codechallenges.concurrent.semaphore.Semaphore;
 import java.lang.reflect.Array;
 
 /**

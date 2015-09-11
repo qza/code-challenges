@@ -1,5 +1,6 @@
-package codechallenges.concurrent.semaphore;
+package codechallenges.concurrent.semaphore.buffer;
 
+import codechallenges.concurrent.semaphore.buffer.Buffer;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicInteger;
 

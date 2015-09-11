@@ -1,5 +1,7 @@
 package codechallenges.dynamicprogramming;
 
+import static java.lang.Math.min;
+
 /**
  *
  * Problem Statement: On a positive integer, you can perform any one of the
@@ -47,10 +49,6 @@ public class MinimumStepsToOne {
         }
 
         return results[n];
-    }
-
-    private int min(int a, int b) {
-        return a <= b ? a : b;
     }
 
     public static void main(String[] args) {

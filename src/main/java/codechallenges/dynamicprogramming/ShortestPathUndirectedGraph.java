@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static java.lang.Integer.min;
+import static java.lang.Math.min;
 
 /**
  * Shortest path in undirected graph

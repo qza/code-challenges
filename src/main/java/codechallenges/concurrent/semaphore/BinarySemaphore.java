@@ -16,23 +16,23 @@ package codechallenges.concurrent.semaphore;
  */
 public class BinarySemaphore implements Semaphore {
 
-    boolean alreadyAcquired = true;
+    boolean alreadyAcquired = false;
 
     @Override
     public synchronized void acquire(long timeout) {
-        while (!alreadyAcquired) {
+        while (alreadyAcquired) {
             try {
                 wait(timeout);
             } catch (InterruptedException ex) {
                 System.out.println(ex.getMessage());
             }
         }
-        alreadyAcquired = false;
+        alreadyAcquired = true;
     }
 
     @Override
     public synchronized void release() {
-        alreadyAcquired = true;
+        alreadyAcquired = false;
         notifyAll();
     }
 

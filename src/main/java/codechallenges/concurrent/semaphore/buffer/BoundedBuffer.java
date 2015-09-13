@@ -14,7 +14,7 @@ import java.lang.reflect.Array;
  *
  * - consumer should not fetch any items when buffer is empty
  *
- * - produces should not depose any items when buffer is full
+ * - producers should not depose any items when buffer is full
  *
  * @param <T> type of buffer items
  */

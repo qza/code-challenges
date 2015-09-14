@@ -2,19 +2,18 @@ package codechallenges.dynamicprogramming;
 
 import java.util.Arrays;
 import java.util.Collection;
-import static org.junit.Assert.assertArrayEquals;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
+import static org.junit.Assert.assertArrayEquals;
+
 /**
  * ZigZagSequence test class
- *
  */
 @RunWith(Parameterized.class)
 public class ZigZagSequenceTest {
-
-    static final int MAX_WEIGHT = 100;
 
     int[] sequence;
     int[] expected;

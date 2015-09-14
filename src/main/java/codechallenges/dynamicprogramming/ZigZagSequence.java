@@ -1,7 +1,8 @@
 package codechallenges.dynamicprogramming;
 
-import static java.lang.Math.max;
 import java.util.Arrays;
+
+import static java.lang.Math.max;
 
 /**
  * ZigZagSequence
@@ -16,10 +17,7 @@ public class ZigZagSequence {
 
     public int[] solve(int[] sequence) {
 
-        int[] difs = new int[sequence.length];
         int[] values = new int[sequence.length];
-
-        Arrays.fill(difs, 0);
 
         values[0] = 1;
         values[1] = values[0] != values[1] ? 2 : 1;

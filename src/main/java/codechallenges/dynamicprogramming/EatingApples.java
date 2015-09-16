@@ -1,5 +1,8 @@
 package codechallenges.dynamicprogramming;
 
+import static java.lang.Math.max;
+import java.util.Arrays;
+
 /**
  * Eating apples
  *
@@ -12,7 +15,20 @@ package codechallenges.dynamicprogramming;
 public class EatingApples {
 
     public int solve(int[][] items) {
-        return 0;
+
+        int rows = items.length;
+        int columns = items[0].length;
+        int[][] amounts = new int[rows][columns];
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                int up = i > 0 ? amounts[i - 1][j] : 0;
+                int left = j > 0 ? amounts[i][j - 1] : 0;
+                amounts[i][j] = items[i][j] + max(up, left);
+            }
+        }
+
+        return amounts[rows - 1][columns - 1];
     }
 
     public static void main(String[] args) {

@@ -1,5 +1,6 @@
 package codechallenges.dynamicprogramming;
 
+import static java.lang.Math.min;
 import java.util.Arrays;
 
 /**
@@ -40,10 +41,6 @@ public class MinimumCoinsForBill {
         }
 
         return minimums[n] > n ? -1 : minimums[n];
-    }
-
-    int min(int a, int b) {
-        return a <= b ? a : b;
     }
 
     public static void main(String[] args) {

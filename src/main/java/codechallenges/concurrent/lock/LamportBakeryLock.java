@@ -1,5 +1,7 @@
 package codechallenges.concurrent.lock;
 
+import static java.lang.Math.max;
+
 /**
  * Lamport Bakery Lock implementation.
  *
@@ -65,10 +67,6 @@ public class LamportBakeryLock implements Lock {
     @Override
     public void release(int pid) {
         numbers[pid] = 0;
-    }
-
-    private int max(int a, int b) {
-        return a >= b ? a : b;
     }
 
 }

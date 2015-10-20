@@ -20,7 +20,30 @@ package codechallenges.dynamicprogramming;
 public class StrategyGameOne {
 
     public int solve(int[] hitPoints) {
-        return 0;
+
+        int sum = 0;
+        for (int hp : hitPoints ) {
+            sum += hp;
+        }
+
+        int[] hits = new int[sum + 1];
+        hits[0] = 0;
+
+        for (int i = 1; i <= sum; i++) {
+
+            hits[i] = hits[i - 1] + 1;
+
+            if (i - 9 >= 0 && hits[i - 9] < hits[i]) {
+                hits[i] = hits[i - 9] + 1;
+            }
+
+            if (i - 3 >= 0 && hits[i - 3] < hits[i]) {
+                hits[i] = hits[i - 3] + 1;
+            }
+
+        }
+
+        return hits[sum];
     }
 
     int hitPoints(int current) {

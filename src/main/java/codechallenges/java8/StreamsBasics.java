@@ -1,9 +1,12 @@
 package codechallenges.java8;
 
 import java.util.Arrays;
+
 import java.util.List;
 import java.util.Map;
 import java.util.function.Predicate;
+
+import static java.lang.System.out;
 
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.counting;
@@ -20,6 +23,10 @@ public class StreamsBasics {
 		Map<String, Long> map = data.parallelStream().collect(groupingBy(Citizen::getCity, counting()));
 		return map.values().parallelStream().reduce((x, y) -> Long.max(x, y)).get();
 	}
+	
+	static void print(Citizen[] citizens) {
+		Arrays.stream(citizens).map(Citizen::getName).forEach(out::println);
+	}
 
 	public static void main(String[] args) {
 
@@ -30,9 +37,11 @@ public class StreamsBasics {
 
 		List<Citizen> citizenData = Arrays.asList(citizen1, citizen2, citizen3, citizen4);
 
-		StreamsBasics.namesOfTheCitizensInTheCity(citizenData, "london").forEach((el) -> System.out.println(el));
+		StreamsBasics.namesOfTheCitizensInTheCity(citizenData, "london").forEach((el) -> out.println(el));
 
 		System.out.println(StreamsBasics.maxNumberOfCitizensInCity(citizenData));
+		
+		StreamsBasics.print(new Citizen[]{citizen1, citizen2});
 	}
 
 	static class Citizen {

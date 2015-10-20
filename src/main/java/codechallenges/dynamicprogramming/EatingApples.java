@@ -1,7 +1,6 @@
 package codechallenges.dynamicprogramming;
 
 import static java.lang.Math.max;
-import java.util.Arrays;
 
 /**
  * Eating apples

@@ -33,7 +33,7 @@ public class CountingSemaphoreTest {
             csThread.start();
         }
 
-        CounterHistogramThread checkThread = new CounterHistogramThread(50, 200, counter);
+        CounterHistogramThread checkThread = new CounterHistogramThread(20, 200, counter);
         checkThread.start();
         checkThread.join();
 

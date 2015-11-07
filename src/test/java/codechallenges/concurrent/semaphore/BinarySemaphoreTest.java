@@ -30,7 +30,7 @@ public class BinarySemaphoreTest {
             csThread.start();
         }
 
-        CounterHistogramThread checkThread = new CounterHistogramThread(100, 100, counter);
+        CounterHistogramThread checkThread = new CounterHistogramThread(20, 100, counter);
         checkThread.start();
         checkThread.join();
 

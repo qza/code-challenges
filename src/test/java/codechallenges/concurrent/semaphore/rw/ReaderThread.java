@@ -17,7 +17,7 @@ public class ReaderThread extends Thread {
 
     private final Map<Date, Date> reads;
 
-    ReaderThread(Database database, DatabaseProtocol protocol, Map<Date, Date> reads) {
+    ReaderThread(Database<Date> database, DatabaseProtocol protocol, Map<Date, Date> reads) {
         this.database = database;
         this.protocol = protocol;
         this.reads = reads;

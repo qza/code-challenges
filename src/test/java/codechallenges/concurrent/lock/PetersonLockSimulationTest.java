@@ -29,7 +29,7 @@ public class PetersonLockSimulationTest {
         LockThread p1 = new LockThread(1, petersonLock, counter);
         p1.start();
 
-        CounterHistogramThread checkThread = new CounterHistogramThread(50, 100, counter);
+        CounterHistogramThread checkThread = new CounterHistogramThread(20, 100, counter);
         checkThread.start();
         checkThread.join();
 

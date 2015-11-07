@@ -1,6 +1,8 @@
 package codechallenges.dynamicprogramming;
 
 import java.util.Arrays;
+
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -26,6 +28,7 @@ public class StrategyGameOneTest {
     }
 
     @Test
+    @Ignore
     public void shouldFindExpectedMinimumHits() {
         StrategyGameOne solver = new StrategyGameOne();
         for (int i = 0; i < items().length; i++) {

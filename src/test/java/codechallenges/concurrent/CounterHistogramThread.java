@@ -9,7 +9,6 @@ import java.util.concurrent.atomic.AtomicInteger;
  *
  * @author qza
  */
-@SuppressWarnings("SleepWhileInLoop")
 public class CounterHistogramThread extends Thread {
 
     private final int checksCount;
@@ -30,7 +29,7 @@ public class CounterHistogramThread extends Thread {
         for (int i = 0; i < checksCount; i++) {
             results[i] = counter.intValue();
             try {
-                Thread.sleep(checkInterval);
+                Thread.sleep(checkInterval); // sleap in loop
             } catch (InterruptedException ex) {
                 System.out.println(ex.getMessage());
             }

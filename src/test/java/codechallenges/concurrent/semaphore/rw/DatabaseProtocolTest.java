@@ -29,6 +29,9 @@ public class DatabaseProtocolTest {
         WriterThread writer1 = new WriterThread(database, protocol, writes1, 1L);
 
         writer0.start();
+        
+        Concurrent.sleepFor(100);
+        
         writer1.start();
 
         Concurrent.sleepFor(2000);

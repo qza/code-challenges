@@ -20,6 +20,11 @@ target
 .classpath
 nb-configuration.xml
 
+# Scala maven #
+
+.cache-main
+.cache-tests
+
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 

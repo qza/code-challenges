@@ -1,2 +1,2 @@
-# code-challenges
-Code challenges in Java and Scala
+# code challenges
+code challenges in Java and Scala

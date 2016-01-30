@@ -9,6 +9,8 @@ import org.junit.runners.Parameterized;
 
 import static org.junit.Assert.assertArrayEquals;
 
+import codechallenges.dynamicprogramming.LongestCommonSubsequence;
+
 /**
  *
  * @author qza

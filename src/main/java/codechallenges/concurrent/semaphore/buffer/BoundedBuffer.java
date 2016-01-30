@@ -8,7 +8,7 @@ import java.lang.reflect.Array;
 /**
  * BoundedBuffer
  *
- * Bounded buffer has purpose in Produces-Consumer scenario.
+ * Bounded buffer has purpose in Producer-Consumer scenario.
  *
  * Main requirements are:
  *

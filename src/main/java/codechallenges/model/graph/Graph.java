@@ -13,7 +13,6 @@ package codechallenges.model.graph;
  * @see Vertex
  * @see Edge
  *
- * @author qza
  */
 public interface Graph {
 

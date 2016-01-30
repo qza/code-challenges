@@ -3,12 +3,12 @@ package codechallenges.dynamicprogramming;
 import static java.lang.Math.max;
 import java.util.Arrays;
 
+
 /**
  * The Longest Common Subsequence
  *
  * Given two sequences S1 and S2, find longest common subsequence S
  *
- * @author qza
  */
 public class LongestCommonSubsequence {
 
